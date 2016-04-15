@@ -1,0 +1,160 @@
+//venue page
+#main {
+    padding: 24px;
+}
+
+.top-bar svg {
+    width: 16px;
+    height: 16px;
+    fill: $primary-color;
+}
+
+.index #main {
+    padding: 18px;
+}
+
+.panel-outside {
+    flex: 0 0 25%;
+    padding: 6px;
+    margin: 0;
+    display: flex;
+}
+
+.panel {
+    width: 100%;
+    transition: background .2s;
+    background: #f4f4f4;
+    border-color: #ccc;
+    color: #333;
+    margin: 0;
+
+    &:hover {
+        background: white;
+    }
+}
+
+body.venues {
+    background: #fff;
+}
+
+#venue-header, #start-header {
+    background: #fff;
+    padding: 24px 12px;
+    border-bottom: 1px solid #ccc;
+
+    h1 {
+        // font-size: rem-calc(24);
+        font-weight: 500;
+        margin: 0;
+    }
+
+    p.countdown-text {
+        font-size: rem-calc(24);
+        font-weight: 300;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .button {
+        margin: 0;
+    }
+}
+
+#venue-header {
+    h1 {
+        font-size: rem-calc(24);
+    }
+}
+
+#server-status-bar {
+    background: #f4f4f4;
+    padding: 24px;
+    border-bottom: 1px solid #ccc;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+    }
+
+    h3 {
+        font-size: rem-calc(14);
+        width: 100%;
+        text-align: center;
+
+        // text-transform: uppercase;
+        margin: 0;
+    }
+
+    .button {
+        margin: 0;
+    }
+
+    .status {
+        opacity: .5;
+    }
+
+    &.provisionable {
+        // background: coral;
+        cursor: pointer;
+
+        .status {
+            margin-left: 12px;
+            opacity: 1;
+
+            .button {
+                margin: 0;
+            }
+        }
+    }
+}
+
+table {
+    text-align: left;
+    border-top: 1px solid #ccc;
+    border: none;
+    width: 100%;
+
+    .button {
+        margin: 0;
+        width: 100%;
+    }
+
+    tbody {
+        border: none;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #none;
+    }
+
+    tr {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background: none;
+
+        &:nth-child(even) {
+            background: none;
+
+            &:hover {
+                background: white;
+            }
+        }
+
+        td {
+            padding: 12px 0;
+        }
+
+        th:first-child {
+            padding-left: 0;
+        }
+
+        td:first-child {
+            padding-left: 0;
+        }
+
+        &:hover {
+            background: white;
+        }
+    }
+}

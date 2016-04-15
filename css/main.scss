@@ -4,9 +4,10 @@
 $primary-color: green;
 $secondary-color: blue;
 $dropdownmenu-background: orange;
-
+@import 'settings';
 @import 'foundation';
 @include foundation-everything;
+@import 'venues';
 
 main {
   @include grid-row;
@@ -21,6 +22,17 @@ main {
   }
 }
 
+.top-bar {
+    border-bottom: 1px solid #ddd;
+
+    li.active a {
+        color: black;
+    }
+
+    ul li >a {
+      color: #ccc;
+    }
+}
 footer {
   padding: 20px;
   background-color: black;

@@ -1,0 +1,19 @@
+<h3>Lineup</h3>
+
+<table class="stack lineup-list">
+<tr>
+	<th>Start Time</th>
+	<th>Title</th>
+	<th>Action</th>
+</tr>
+ {% for talk in site.data.lineup %}
+<tr class="lineup-list-item">
+<td>{{talk.time}}</td>
+<td>{{talk.name}}</td>
+<td><a href="#" class="button small secondary">Edit</a></td>
+	
+
+</tr>
+    {% endfor %}
+
+</table>

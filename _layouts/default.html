@@ -4,10 +4,15 @@
   {% include head.html %}
 
   <body>
-
     {% include header.html %}
 
-      <main>
+{% if page.title != "home" %}
+  {% include venue-header.html %}
+
+  {% include server-status.html %}
+  {% endif %}
+
+      <main id="main">
         {{ content }}
       </main>
 
