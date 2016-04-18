@@ -9,18 +9,18 @@ $dropdownmenu-background: orange;
 @include foundation-everything;
 @import 'venues';
 
-main {
-  @include grid-row;
-  article {
-    header, div:first { 
-      @include grid-column(12);
-    }
-  }
-  padding : {
-    left: 20px;
-    right: 20px;
-  }
-}
+// main {
+//   @include grid-row;
+//   article {
+//     header, div:first { 
+//       @include grid-column(12);
+//     }
+//   }
+//   padding : {
+//     left: 20px;
+//     right: 20px;
+//   }
+// }
 
 .top-bar {
     border-bottom: 1px solid #ddd;

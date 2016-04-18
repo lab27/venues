@@ -1,7 +1,7 @@
 //venue page
 
 #main {
-    padding: 24px;
+    padding: 24px 0 0 0;
 }
 
 .top-bar svg {
@@ -32,6 +32,10 @@
     &:hover {
         background: white;
     }
+}
+
+.lineup-title {
+    margin-bottom: 48px;
 }
 
 body.venues {
@@ -84,6 +88,7 @@ body.venues {
         width: 18px;
         height: 18px;
         fill: currentColor;
+        vertical-align: middle;
     }
 
     h3 {
@@ -97,6 +102,7 @@ body.venues {
 
     .button {
         margin: 0;
+        margin-left: 12px;
     }
 
     .status {
@@ -114,6 +120,15 @@ body.venues {
             .button {
                 margin: 0;
             }
+        }
+    }
+
+    &.online {
+        background: $success-color;
+        color: white;
+
+        h3 {
+            font-weight: 500;
         }
     }
 }
@@ -158,6 +173,10 @@ table {
             padding: 12px 0;
         }
 
+        td.blank {
+            width: 24px;
+        }
+
         th:first-child {
             padding-left: 0;
         }
@@ -168,6 +187,14 @@ table {
 
         &:hover {
             background: white;
+        }
+
+        &.next-talk {
+            background: lemonchiffon;
+
+            &:hover {
+                background: lemonchiffon;
+            }
         }
     }
 }

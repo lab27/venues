@@ -520,9 +520,11 @@ $table-striped-background: white;
 // // 33. Title Bar
 // // -------------
 
-// $titlebar-background: $black;
-// $titlebar-color: $white;
-// $titlebar-padding: 0.5rem;
+$titlebar-background: #fff;
+$titlebar-color: #333;
+
+$titlebar-padding: 1.5rem;
+
 // $titlebar-text-font-weight: bold;
 // $titlebar-icon-color: $white;
 // $titlebar-icon-color-hover: $medium-gray;
