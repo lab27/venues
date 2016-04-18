@@ -1,4 +1,5 @@
 //venue page
+
 #main {
     padding: 24px;
 }
@@ -35,6 +36,14 @@
 
 body.venues {
     background: #fff;
+}
+
+.date-btn {
+    color: #eee;
+
+    svg {
+        fill: currentColor;
+    }
 }
 
 #venue-header, #start-header {
@@ -126,6 +135,10 @@ table {
 
     tbody tr:nth-child(even) {
         background: #none;
+    }
+
+    th {
+        padding: 12px 0;
     }
 
     tr {
