@@ -1,9 +1,10 @@
-<div class="title-bar"><h3 class="lineup-title">Lineup</h3>
+<div class="title-bar"><h4 class="lineup-title">Lineup</h4>
 </div>
 <table class="stack lineup-list">
 <tr>
 	<th></th>
 	<th>Start Time</th>
+	<th></th>
 	<th>Title</th>
 	<th>Action</th>
 	<th></th>
@@ -11,10 +12,12 @@
  {% for talk in site.data.lineup %}
 <tr class="lineup-list-item">
 <td class="blank"></td>
-<td>{{talk.time}}</td>
-<td>{{talk.name}}</td>
+<td class="talk-time">{{talk.time}}</td>
+<td class="soundbars-cell"><span class="soundbars hide">{% include soundbars.html %}</span></td>
+<td class="talk-title">{{talk.name}}&nbsp; <span class="live hide">LIVE</span><span class="stopped hide">STREAM STOPPED</span></td>
 <td class="btns{{forloop.index}}">
 	<a href="#" class="button small success hide start">Start Stream</a>
+	<a href="#" class="button small alert hide stop">Stop Stream</a>
 <a href="#" class="button small secondary hollow edit">Edit</a>
 
 

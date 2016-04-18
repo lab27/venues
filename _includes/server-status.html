@@ -1,14 +1,20 @@
 <div id="server-status-bar" class="clearfix row expanded">
 	
 	<h3 class="server">
-SERVER OFFLINE</span>
+<span class="server-status">SERVER OFFLINE</span>
 
-<span class="status">
+<span class="launchable-in">
 Launchable&nbsp;<span class="countdown" id="time-till-provisioning"> </span>
 </span>
 
-<a href="#" class="button success launch-now hide">Launch Now!</a>
-<a href="#" class="button success launching hide">Launching (<span class="timer"></span>) {% include loading.svg %}</a>
+<span class="launching-now hide">
+ (<span class="timer"></span>) {% include loading.svg %}
+
+</span>
+
+<a href="#" class="button success launch-now hide">Launch Now!</a> <span class="launch-advice hide">(necessary for stream)</span>
+<span class="online-for"></span>
+
 </h3>
 
 
