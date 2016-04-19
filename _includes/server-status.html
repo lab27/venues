@@ -1,35 +1,49 @@
-<!-- <div id="server-status-table" class="clearfix row expanded"> -->
 <table class="status-table">
-	<tr>
-		<td class="main-clock"></td>
-		<td class="device-status"></td>
-		<td class="server-status">	<h3 class="server">
-<span class="server-status">SERVER OFFLINE</span>
+	<tr class="labels">
+		<th class="server-label">
+			SERVER <span class="secondary badge float-right">-</span>
+		</th>
+			<th class="device-label">
+			
+			DEVICE 
+			<span class="secondary badge float-right">-</span>
+			<span class="soundbars float-right">{% include soundbars.html %}</span>
 
-<span class="launchable-in">
-Launchable&nbsp;<span class="countdown" id="time-till-provisioning"> </span>
-</span>
-
-<span class="launching-now hide">
- (<span class="timer"></span>) {% include loading.svg %}
-
-</span>
-
-<a href="#" class="button success launch-now hide">Launch Now!</a> <span class="launch-advice hide">(necessary for stream)</span>
-<span class="online-for"></span>
-
-</h3>
-</td>
-	</tr>
-	<tr>
-		<th>TIME</th>
-		<th>DEVICE</th>
-		<th>SERVER</th>
-	</tr>
-</table>
-
+		</th>
+		<th class="clock-label">
+			TALK <span class="secondary badge float-right">-</span>
+		</th>
 	
-
-
-
-<!-- </div> -->
+	
+	</tr>
+	<tr>
+		<td class="server-status">	
+			{% include server-switch.html %}
+			<!-- First State -->
+			<span class="launchable-in">
+				Can be started
+				<span class="countdown" id="time-till-provisioning"> </span>
+			</span>
+			<!-- Second State -->
+			<span class="start-now hide">
+				Start Server Now!
+			</span>
+			<span class="launching-now hide">
+				(<span class="timer"></span>) 
+				{% include loading.svg %}
+			</span>
+			
+			<span class="online-for"></span>
+		</td>
+		<td class="device-status">
+			{% include device-select.html %}
+		</td>
+		
+		<td class="main-clock">
+			<span class="clock-msg"></span>
+			<a href="#" class="button secondary disabled float-right start">START</a>
+			<a href="#" class="button alert hollow float-right stop hide">STOP</a>
+		</td>
+	</tr>
+	
+</table>
