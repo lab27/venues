@@ -1,4 +1,4 @@
-<div class="title-bar"><h4 class="lineup-title">Upcoming Talks:</h4>
+<div class="title-bar"><h5 class="lineup-title">Upcoming Talks:</h5>
 </div>
 <table class="stack lineup-list">
 	<tr>
@@ -14,18 +14,14 @@
 			<td class="blank"></td>
 			<td class="talk-time">{{talk.time}}</td>
 			<td class="soundbars-cell"></td>
-			<td class="talk-title">{{talk.name}}&nbsp; <span class="live label success hide">Streaming </span><span class="stopped label alert hide">STREAM STOPPED</span></td>
-			<!-- <td class="btns{{forloop.index}}">
-				<a href="#" class="button small hollow info">View Page</a>
-					<a href="#" class="button small success hide start disabled">Start Stream</a>
-					<a href="#" class="button small alert hide stop">Stop Stream</a>
-				<a href="#" data-open="edit-talk" class="button small secondary hollow edit">Edit</a>
-			</td> -->
+			<td class="talk-title">{{talk.name}}&nbsp; </td>
+			</td>
+			
 			<td class="blank"></td>
 		</tr>
 	{% endfor %}
 </table>
-<div class="title-bar"><h4 class="lineup-title">Previous Talks:</h4>
+<div class="title-bar"><h5 class="lineup-title">Previous Talks:</h5>
 </div>
 <table class="stack lineup-list previous-talks">
 	<tr>
@@ -41,13 +37,7 @@
 			<td class="blank"></td>
 			<td class="talk-time">{{talk.time}}</td>
 			<td class="soundbars-cell"></td>
-			<td class="talk-title">{{talk.name}}&nbsp; <span class="live label hide success">Streaming </span><span class="stopped hide label alert">STREAM STOPPED</span></td>
-			<!-- <td class="btns{{forloop.index}}">
-				<a href="#" class="button small hollow info">View Page</a>
-					<a href="#" class="button small success hide start disabled">Start Stream</a>
-					<a href="#" class="button small alert hide stop">Stop Stream</a>
-				<a href="#" data-open="edit-talk" class="button small secondary hollow edit">Edit</a>
-			</td> -->
+			<td class="talk-title">{{talk.name}}</td>
 			<td class="blank"></td>
 		</tr>
 	{% endfor %}

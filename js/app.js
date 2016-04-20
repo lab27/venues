@@ -28,27 +28,36 @@ $('.date-btn').on("click", function() {
 		$('.state-msg').text(stateMsg1);
 	    $('.launchable-in').addClass('hide');
 	    $('.date-btn').addClass('hide');
-	    $('.start-now').removeClass('hide')
+	    $('.server-start-button').removeClass('hide')
 	    $('.launch-advice').removeClass('hide')
-	    $('.switch').removeClass('disabled')
-	    $('.server-label .badge').removeClass('secondary').addClass('warning').text('!')
+	    // $('.switch').removeClass('disabled')
+	    $('.server-panel .badge').removeClass('neutral').addClass('warning').text('!')
+	    if ($('select').val() == 'none') {
+			$('.device-panel .badge').removeClass('neutral').addClass('warning').text('!')
+		}
+
 
 	} else if(clockState == 1){
-		$('.launching-now').addClass('hide')
+		$('.server-progress').addClass('hide')
 		// $('.server-status').text('SERVER ONLINE')
 		//$('#server-status-bar').addClass('online')
- 	 	$('.switch').removeClass('starting')
- 	 	$('.switch-active').text('Online')
+ 	 	//$('.switch').removeClass('starting')
+ 	 	//$('.switch-active').text('Online')
+ 	 	$('.server-bitrate').text('25')
+
 		
 		if ($('select').val() == 'vr') {
 			$('.clock-label .badge').removeClass('secondary').addClass('warning').text('!')
- 	 		$('.main-clock .button').removeClass('disabled').addClass('success')
+ 	 		$('.talk-panel .button').removeClass('disabled').addClass('success')
+ 	 		$('.soundbars').addClass('signal');
 		}
 
 	
  	 	
 
- 	 	$('.server-label .badge').removeClass('warning').addClass('success').html('&#x2713;')
+ 	 	$('.server-panel .badge').removeClass('warning').addClass('success').html('&#x2713;')
+ 	 	
+		$('.online-for').removeClass('hide')
 		$('.online-for').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
 		  var $this = $(this);
 		  if (event.elapsed) {
@@ -61,19 +70,18 @@ $('.date-btn').on("click", function() {
 		$('.clock-msg').countdown(in10Min, function(event) {
    			$(this).html(event.strftime('%-M:%S'));
  		});
- 		$('.btns1 a.edit').addClass('hide')
- 		$('.btns1 a.start').removeClass('hide')
- 		$('table tr:nth-child(2)').addClass('next-talk')
+ 		$('.clock-msg').addClass('hide')
+ 		$('.talk-start-button').removeClass('hide')
  		$('.date-btn').addClass('hide');
 		$('.state-msg').text(stateMsg2);
 
 		insideTenMin = true;
 		
-
+		$('.talk-panel .badge').removeClass('neutral').addClass('warning').text('!')
 		if ($('select').val() == 'none') {
-			$('.device-label .badge').removeClass('warning').addClass('alert')
+			$('.device-panel .badge').removeClass('warning').addClass('alert')
 		} else if ($('select').val() == 'vr') {
-			$('.soundbars').addClass('signal');
+			
 			$('.start').removeClass('disabled')
 			$('.start').addClass('success')
 
@@ -87,12 +95,13 @@ $('.date-btn').on("click", function() {
 // select change
 $('select').change(function(){
   if($(this).val() == 'vr'){ 
-    $('.device-label .badge').removeClass('warning').removeClass('alert').addClass('success').html('&#x2713;')
+    $('.device-panel .badge').removeClass('neutral').removeClass('warning').addClass('success').html('&#x2713;')
   } else if ($(this).val() == 'none') {
-  	 $('.device-label .badge').removeClass('success').removeClass('alert').addClass('warning').html('!')
+  	 $('.device-panel .badge').removeClass('success').removeClass('alert').addClass('warning').html('!')
   } else if ($(this).val() == 'new') {
   	$('#device-modal').foundation('open');
   }
+  $('.soundbars').addClass('signal');
   if (insideTenMin == true) {
   		$('.soundbars').addClass('signal');
 		$('.start').removeClass('disabled')
@@ -100,14 +109,15 @@ $('select').change(function(){
 });
 
 
-// Flip server switch
-$('.switch-input').change(function() {
-    if(this.checked) {
-    $('.start-now').addClass('hide')
-    $('.launch-advice').addClass('hide')
+
+
+//turn server on
+$('.server-start-button').on('click',function(){
+	$(this).hide()
+	$('.server-progress').removeClass('hide')
+	$('.launch-advice').addClass('hide')
     $('.launching-now').removeClass('hide')
     $('.date-btn').removeClass('hide');
-    }
 });
 
 
@@ -124,38 +134,34 @@ $('.launching-now .timer').countdown(in4Min, function(event) {
  });
 
 //Click Start Stream
-$('.start').on('click', function(){
-	$('.stop').removeClass('hide');
+$('.talk-start-button').on('click', function(){
+	$('.talk-stop-button').removeClass('hide');
 	$(this).addClass('hide');
-	$('.venue-title .label').removeClass('hide')
-	$('.clock-label .badge').removeClass('warning').addClass('success').html('&#x2713;')
-	$('table tr:nth-child(2) .live').removeClass('hide')
-	$('table tr:nth-child(2) .stopped').addClass('hide')
+	$('.streaming').removeClass('hide')
+	$('.talk-panel .badge').removeClass('warning').addClass('success').html('&#x2713;')
+	// $('table tr:nth-child(2) .live').removeClass('hide')
+	// $('table tr:nth-child(2) .stopped').addClass('hide')
 	//$('table tr:nth-child(2)').removeClass('next-talk').addClass('streaming')
-	$('table tr:nth-child(2) td.talk-time').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
-		  var $this = $(this);
-		  if (event.elapsed) {
-		    $this.html(event.strftime('<span>%H:%M:%S</span>'));
-		  } else {
-		    $this.html(event.strftime('<span>%H:%M:%S</span>'));
-		  }
-		});
+	// $('table tr:nth-child(2) td.talk-time').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
+	// 	  var $this = $(this);
+	// 	  if (event.elapsed) {
+	// 	    $this.html(event.strftime('<span>%H:%M:%S</span>'));
+	// 	  } else {
+	// 	    $this.html(event.strftime('<span>%H:%M:%S</span>'));
+	// 	  }
+	// 	});
 });
 
 //CLICK STOP stream
-$('.stop').on('click', function(){
-	if (confirm('Are you sure you want to stop the stream?')) {
-    $('.start').removeClass('hide');
+$('.talk-stop-button').on('click', function(){
+    $('.talk-start-button').removeClass('hide');
 	$(this).addClass('hide');
-	$('.venue-title .label').addClass('hide')
+	$('.streaming').addClass('hide')
 	$('.clock-label .badge').removeClass('success').addClass('alert').html('!')
-	$('table tr:nth-child(2) .stopped').removeClass('hide');
-	$('table tr:nth-child(2) .live').addClass('hide')
+	$('.stopped').removeClass('hide');
 	$('.soundbars').removeClass('signal');
 	//$('table tr:nth-child(2)').removeClass('streaming').addClass('interrupted')
 
-} else {
-    // Do nothing!
-}
+
 
 });

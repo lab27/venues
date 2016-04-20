@@ -47,18 +47,57 @@
 // $global-font-size: 100%;
 // $global-width: rem-calc(1200);
 // $global-lineheight: 1.5;
-$primary-color: #f82847;
+$white: #FFFFFF !default;
+$ghost: #FAFAFA !default;
+$snow: #f2f2f2 !default;
+$vapor: #F6F6F6 !default;
+$white-smoke: #F5F5F5 !default;
+$silver: #EFEFEF !default;
+$smoke: #EEEEEE !default;
+$gainsboro: #DDDDDD !default;
+$iron: #CCCCCC !default;
+$base: #AAAAAA !default;
+$aluminum: #999999 !default;
+$jumbo: #888888 !default;
+$monsoon: #777777 !default;
 
-$secondary-color: #777;
-$success-color: #3adb76;
-$info-color: #2199e8;
-$warning-color: #ffae00;
-$alert-color: #ec5840;
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #0a0a0a;
-$white: #fefefe;
+//----
+$steel: #d9dadd !default;
+$charcoal: #b4b6be !default;
+$tuatara: #8F939C !default;
+$oil: #64697e !default;
+$jet: #3c4258 !default;
+$dark-gray: #3F4044 !default;
+$almost-black: #121214 !default;
+$black: #000000 !default;
+$talk-dark: #29292b !default;
+$topbar-dark: #35363b !default;
+
+//comments-bg
+$bluish-gray: #3C404B !default;
+
+//VR Brand:
+$vr-blue: #3748a0;
+$vr-light-blue: #54c6c6;
+$vr-red: #f82847;
+$vr-purple: #a339cd;
+$vr-yellow: #ffed00;
+$vr-beige: #fef1de;
+
+// We use these as default colors throughout
+$primary-color: $vr-blue !default;
+
+$secondary-color: $vr-light-blue !default;
+
+$alert-color: $vr-red !default;
+
+$success-color: #7ac654 !default;
+
+$warning-color: $vr-yellow !default;
+
+$info-color: $vr-beige !default;
+
+$light-gray: #e1e2e7 !default;
 
 // $body-background: $white;
 // $body-font-color: $black;
@@ -99,8 +138,10 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // // 4. Base Typography
 // // ------------------
 
-// $header-font-family: $body-font-family;
-// $header-font-weight: $global-weight-normal;
+$header-font-family: "Eagle", "Eagle-Book", $body-font-family;
+
+$header-font-weight: 300;
+
 // $header-font-style: normal;
 // $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 // $header-sizes: (
@@ -128,7 +169,8 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // $small-font-size: 80%;
 // $header-small-font-color: $medium-gray;
 // $paragraph-lineheight: 1.6;
-// $paragraph-margin-bottom: 1rem;
+$paragraph-margin-bottom: 0;
+
 // $paragraph-text-rendering: optimizeLegibility;
 // $code-color: $black;
 // $code-font-family: $font-family-monospace;
@@ -142,7 +184,8 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // $anchor-text-decoration-hover: none;
 // $hr-width: $global-width;
 // $hr-border: 1px solid $medium-gray;
-// $hr-margin: rem-calc(20) auto;
+$hr-margin: 0 auto;
+
 // $list-lineheight: $paragraph-lineheight;
 // $list-margin-bottom: $paragraph-margin-bottom;
 // $list-style-type: disc;
@@ -209,7 +252,7 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // // 9. Badge
 // // --------
 
-// $badge-background: $primary-color;
+// $badge-background: $info-color;
 // $badge-color: foreground($badge-background);
 // $badge-padding: 0.3em;
 // $badge-minwidth: 2.1em;
@@ -231,7 +274,8 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // // ----------
 
 // $button-padding: 0.85em 1em;
-// $button-margin: 0 0 $global-margin 0;
+$button-margin: 0;
+
 // $button-fill: solid;
 // $button-background: $primary-color;
 // $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -260,7 +304,8 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // $callout-background: $white;
 // $callout-background-fade: 85%;
 // $callout-border: 1px solid rgba($black, 0.25);
-// $callout-margin: 0 0 1rem 0;
+$callout-margin: 0 0 0 0;
+
 // $callout-padding: 1rem;
 // $callout-font-color: $body-font-color;
 // $callout-font-color-alt: $body-background;
@@ -336,7 +381,8 @@ $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxy
 // $form-label-font-weight: $global-weight-normal;
 // $form-label-line-height: 1.8;
 // $select-background: $white;
-// $select-triangle-color: #333;
+$select-triangle-color: $vr-beige;
+
 // $select-radius: $global-radius;
 // $input-color: $black;
 // $input-font-family: inherit;
@@ -479,7 +525,8 @@ $switch-background-active: $success-color;
 // // 30. Table
 // // ---------
 
-// $table-background: $white;
+$table-background: $talk-dark;
+
 // $table-color-scale: 5%;
 // $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 // $table-padding: rem-calc(8 10 10);
@@ -523,8 +570,8 @@ $table-striped-background: white;
 // // 33. Title Bar
 // // -------------
 
-$titlebar-background: #fff;
-$titlebar-color: #333;
+$titlebar-background: $talk-dark;
+$titlebar-color: $vr-beige;
 
 $titlebar-padding: 1.5rem;
 
@@ -550,7 +597,7 @@ $titlebar-padding: 1.5rem;
 
 $topbar-padding: 0.5rem;
 
-$topbar-background: white;
+$topbar-background: $topbar-dark;
 
 // $topbar-link-color: $primary-color;
 // $topbar-input-width: 200px;

@@ -1,0 +1,63 @@
+<div class="row clearfix">
+	<div id="venue-control-panel" class="clearfix">
+		<div class="medium-4 columns server-panel">
+			<div class="titlebar clearfix">
+				<h4 class="title">SERVER
+					<span class="neutral badge float-right">&#8734;</span>
+					<span class="float-right server-bitrate-wrapper"><span class="server-bitrate">--</span> kB/sec</span>
+				</h4>
+			</div>
+			<div class="divider"></div>
+			<div class="actionbar clearfix">
+				<p class="label launchable-in">
+					Can be started
+					<span class="countdown" id="time-till-provisioning"> </span>
+				</p>
+				<a class="button success server-start-button hide">Click to launch server</a>
+				<div class="secondary progress server-progress hide" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
+					<div class="progress-meter" style="width: 25%">
+						<p class="progress-meter-text">Server is starting</p>
+					</div>
+				</div>
+				<p class="label online-for hide"></p>
+			</div>
+		</div>
+		<div class="medium-4 columns device-panel">
+			<div class="titlebar clearfix">
+				<h4 class="title">
+					DEVICE
+					<span class="neutral badge float-right">&#8734;</span>
+					<span class="soundbars float-right"><div id="bars">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+					</div></span>
+				</h4>
+			</div>
+			<div class="divider"></div>
+			<div class="actionbar clearfix">
+				{% include device-select.html %}
+			</div>
+		</div>
+		<div class="medium-4 columns talk-panel">
+			<div class="titlebar clearfix">
+				<h4 class="title">TALK
+					<span class="neutral badge float-right">&#8734;</span>
+				</h4>
+			</div>
+			<div class="divider"></div>
+			<div class="actionbar clearfix">
+				<span class="label clock-msg"></span>
+				<a class="button success talk-start-button hide">Start "Preisverleihung 'Preis der Leipziger Buchmesse 2016'</a>
+				<a href="#" class="button alert talk-stop-button hide hollow has-tip tip-top" data-tooltip aria-haspopup="true" data-disable-hover="false" tabindex="1" title="Are you sure you want to stop the stream early?">Stop "Preisverleihung 'Preis der Leipziger Buchmesse 2016'</a>
+			</div>
+		</div>
+	</div>
+</div>

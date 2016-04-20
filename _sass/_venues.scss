@@ -1,11 +1,19 @@
 //venue page
 
+.venues-show {
+    background: $talk-dark;
+}
+
 #main {
     padding: 24px 0 0 0;
 }
 
 .home {
     padding: 24px;
+}
+
+nav.top-bar {
+    border: none;
 }
 
 .top-bar svg {
@@ -23,14 +31,20 @@
 }
 
 .title-bar {
-    h4 {
-        font-size: 1.4rem;
-        color: #999;
+    background: none;
+    padding-bottom: 12px;
+
+    h5 {
+        font-size: 1rem;
+        color: $oil;
+        font-family: $body-font-family;
+        font-weight: 500;
     }
 }
 
 .index #main {
     padding: 18px;
+    background: none;
 }
 
 .panel-outside {
@@ -53,10 +67,6 @@
     }
 }
 
-body.venues {
-    background: #fff;
-}
-
 .date-btn {
     color: #eee;
 
@@ -65,19 +75,28 @@ body.venues {
     }
 }
 
+.badge {
+    color: $talk-dark;
+
+    &.warning {
+        color: $talk-dark;
+    }
+}
+
 .label {
     vertical-align: middle;
 }
 
 #venue-header, #start-header {
-    background: #fff;
+    background: $talk-dark;
     padding: 24px 12px;
-    border-bottom: 1px solid #eee;
+
+    // border-bottom: 1px solid #;
 
     h1 {
-        // font-size: rem-calc(24);
         font-weight: 500;
         margin: 0;
+        color: $vr-light-blue;
     }
 
     p.countdown-text {
@@ -95,6 +114,10 @@ body.venues {
 #venue-header {
     h1 {
         font-size: rem-calc(24);
+
+        .label {
+            font-family: $body-font-family;
+        }
     }
 }
 
@@ -152,11 +175,25 @@ body.venues {
     }
 }
 
+.has-tip {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tooltip {
+    background: $vr-red;
+
+    &.top:before {
+        border-color: $vr-red transparent transparent;
+    }
+}
+
 table.lineup-list {
     text-align: left;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $topbar-dark;
     border: none;
     width: 100%;
+    color: $oil;
 
     .button {
         margin: 0;
@@ -170,23 +207,28 @@ table.lineup-list {
     }
 
     tbody tr:nth-child(even) {
-        background: #none;
+        background: rgba(black, 0.1);
     }
 
     th {
         padding: 12px 0;
+        color: $silver;
     }
 
     tr {
         border: none;
-        border-bottom: 1px solid #ccc;
-        background: none;
+        border-bottom: 1px solid $topbar-dark;
+        background: rgba(black, 0.1);
+
+        &:hover {
+            background: rgba(black, 0.1);
+        }
 
         &:nth-child(even) {
             background: none;
 
             &:hover {
-                background: white;
+                background: rgba(black, 0.1);
             }
         }
 
@@ -209,10 +251,6 @@ table.lineup-list {
 
         td:first-child {
             padding-left: 0;
-        }
-
-        &:hover {
-            background: white;
         }
 
         &.next-talk {
@@ -249,30 +287,145 @@ table.lineup-list {
 
 select {
     margin: 0;
+    padding: 9px 12px 12px 12px;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: normal;
+    color: $vr-beige;
+    background-color: transparent;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-size: 9px 6px;
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    height: 46px;
+    font-size: .8rem;
 }
 
-table.status-table {
+#venue-control-panel {
+    background: $topbar-dark;
+    border-radius: 4px;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+    color: $oil;
+
+    .columns {
+        border-right: 3px solid $talk-dark;
+        padding: 0;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    .titlebar {
+        padding: 12px;
+        max-height: 46px;
+
+        h4 {
+            font-size: rem-calc(16);
+            margin: 0;
+            font-family: $body-font-family;
+            font-weight: 300;
+        }
+
+        .neutral {
+            background: $oil;
+        }
+
+        .server-bitrate-wrapper {
+            font-size: rem-calc(12);
+            color: $oil;
+            margin-right: 12px;
+        }
+    }
+
+    .divider {
+        height: 1px;
+        background: $talk-dark;
+    }
+
+    .actionbar {
+        padding: 0;
+        color: $vr-beige;
+        background: rgba(black, 0.1);
+
+        a.button {
+            width: 100%;
+            height: 46px;
+            max-height: 46px;
+            font-size: .8rem;
+            padding-top: 16px;
+        }
+
+        .label {
+            height: 46px;
+            max-height: 46px;
+            background: none;
+            margin: 0;
+            color: $vr-beige;
+            padding: 16px 12px 12px 12px;
+        }
+
+        .server-progress {
+            background: rgba(black, 0.1);
+            height: 46px;
+            max-height: 46px;
+            margin: 0;
+            border-bottom-left-radius: 4px;
+
+            .progress-meter {
+                background: rgba($vr-blue, 1);
+                border-bottom-left-radius: 4px;
+
+                .progress-meter-text {
+                    left: 12px;
+                    transform: none;
+                    top: 12px;
+                    color: $vr-beige;
+                }
+            }
+        }
+    }
+
+    .server-panel .actionbar .button {
+        border-bottom-left-radius: 4px;
+    }
+
+    .talk-panel .actionbar .button {
+        border-bottom-right-radius: 4px;
+    }
+}
+
+table.venue-control-panel {
     text-align: left;
     width: 100%;
     vertical-align: middle;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
 
     p, .button {
         margin: 0;
         vertical-align: middle;
     }
 
+    tbody tr:nth-child(even) {
+        background: none;
+    }
+
     tbody {
         border: none;
-        border-bottom: 1px solid #ddd;
+        background: $topbar-dark;
     }
 
     th, td {
         // border: 1px solid green;
         width: 33%;
-        background: #f4f4f4;
-        border-right: 1px solid #ccc;
-        padding: 12px;
+        background: none;
+        border-right: 1px solid $talk-dark;
+        padding: 12px 24px;
 
         &:last-child {
             border-right: none;
@@ -282,17 +435,23 @@ table.status-table {
     th {
         font-size: rem-calc(14);
         font-weight: 300;
-        background: #eee;
+        background: none;
+        color: $vr-beige;
+        border-bottom: 2px solid $vr-light-blue;
+
+        // border-right: 1px solid black;
+   
+    }
+
+    td.blank, th.blank {
+        width: 2px;
+        max-width: 2px;
+        border: none;
+        padding: 0;
+        background: $talk-dark;
+        border-spacing: 0;
     }
 }
-
-// .live, .stopped {
-//     background: $info-color;
-//     color: white;
-//     padding: 6px;
-//     display: inline-block;
-//     margin-left: 6px;
-// }
 
 .stopped {
     background: $alert-color;
@@ -308,7 +467,7 @@ table.status-table {
 }
 
 .bar {
-    background: $secondary-color;
+    background: $oil;
     bottom: 1px;
     height: 1px;
     position: absolute;
@@ -480,4 +639,51 @@ table.status-table {
     -moz-animation: flickerAnimation 1.5s infinite;
     -o-animation: flickerAnimation 1.5s infinite;
     animation: flickerAnimation 1.5s infinite;
+}
+
+.server-progress .progress-meter {
+    -webkit-animation: move-progress-bar 240s infinite;
+    -moz-animation: move-progress-bar 240s infinite;
+    -o-animation: move-progress-bar 240s infinite;
+    animation: move-progress-bar 240s infinite;
+}
+
+@-webkit-keyframes move-progress-bar {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@-moz-keyframes move-progress-bar {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@-o-keyframes move-progress-bar {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes move-progress-bar {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
 }

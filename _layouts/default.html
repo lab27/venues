@@ -3,13 +3,13 @@
 
   {% include head.html %}
 
-  <body>
+  <body class="venues-show">
     {% include header.html %}
 
 {% if page.title != "home" %}
   {% include venue-header.html %}
 
-  {% include server-status.html %}
+  {% include venue-control-panel.html %}
   {% endif %}
 
       <main id="main">

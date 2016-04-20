@@ -1,8 +1,9 @@
-<table class="status-table">
+<table class="venue-control-panel">
 	<tr class="labels">
 		<th class="server-label">
 			SERVER <span class="secondary badge float-right">-</span>
 		</th>
+		<th class="blank" width="2"></th>
 			<th class="device-label">
 			
 			DEVICE 
@@ -10,6 +11,8 @@
 			<span class="soundbars float-right">{% include soundbars.html %}</span>
 
 		</th>
+		<th class="blank" width="2"></th>
+
 		<th class="clock-label">
 			TALK <span class="secondary badge float-right">-</span>
 		</th>
@@ -35,10 +38,12 @@
 			
 			<span class="online-for"></span>
 		</td>
+		<td class="blank" width="2"></td>
+
 		<td class="device-status">
 			{% include device-select.html %}
 		</td>
-		
+		<td class="blank" width="2"></td>
 		<td class="main-clock">
 			<span class="clock-msg"></span>
 			<a href="#" class="button secondary disabled float-right start">START</a>
