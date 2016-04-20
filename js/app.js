@@ -30,7 +30,6 @@ $('.date-btn').on("click", function() {
 	    $('.date-btn').addClass('hide');
 	    $('.server-start-button').removeClass('hide')
 	    $('.launch-advice').removeClass('hide')
-	    // $('.switch').removeClass('disabled')
 	    $('.server-panel .badge').removeClass('neutral').addClass('warning').text('!')
 	    if ($('select').val() == 'none') {
 			$('.device-panel .badge').removeClass('neutral').addClass('warning').text('!')
@@ -39,10 +38,6 @@ $('.date-btn').on("click", function() {
 
 	} else if(clockState == 1){
 		$('.server-progress').addClass('hide')
-		// $('.server-status').text('SERVER ONLINE')
-		//$('#server-status-bar').addClass('online')
- 	 	//$('.switch').removeClass('starting')
- 	 	//$('.switch-active').text('Online')
  	 	$('.server-bitrate').text('25')
 
 		
@@ -137,30 +132,27 @@ $('.launching-now .timer').countdown(in4Min, function(event) {
 $('.talk-start-button').on('click', function(){
 	$('.talk-stop-button').removeClass('hide');
 	$(this).addClass('hide');
-	$('.streaming').removeClass('hide')
+	$('.on-air').addClass('success').addClass('animate-flicker').text('ON AIR')
 	$('.talk-panel .badge').removeClass('warning').addClass('success').html('&#x2713;')
-	// $('table tr:nth-child(2) .live').removeClass('hide')
-	// $('table tr:nth-child(2) .stopped').addClass('hide')
-	//$('table tr:nth-child(2)').removeClass('next-talk').addClass('streaming')
-	// $('table tr:nth-child(2) td.talk-time').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
-	// 	  var $this = $(this);
-	// 	  if (event.elapsed) {
-	// 	    $this.html(event.strftime('<span>%H:%M:%S</span>'));
-	// 	  } else {
-	// 	    $this.html(event.strftime('<span>%H:%M:%S</span>'));
-	// 	  }
-	// 	});
+	$('.talk-progress').removeClass('hide')
+	$('.talk-panel .progress-meter-text').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
+		  var $this = $(this);
+		  if (event.elapsed) {
+		    $this.html(event.strftime('<span>%H:%M:%S</span>'));
+		  } else {
+		    $this.html(event.strftime('<span>%H:%M:%S</span>'));
+		  }
+		});
 });
 
 //CLICK STOP stream
 $('.talk-stop-button').on('click', function(){
     $('.talk-start-button').removeClass('hide');
 	$(this).addClass('hide');
-	$('.streaming').addClass('hide')
+	$('.on-air').addClass('hide')
 	$('.clock-label .badge').removeClass('success').addClass('alert').html('!')
 	$('.stopped').removeClass('hide');
 	$('.soundbars').removeClass('signal');
-	//$('table tr:nth-child(2)').removeClass('streaming').addClass('interrupted')
 
 
 

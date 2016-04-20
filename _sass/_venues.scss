@@ -117,6 +117,17 @@ nav.top-bar {
 
         .label {
             font-family: $body-font-family;
+            padding: 12px;
+            border: 2px solid $oil;
+            background: none;
+            color: $oil;
+            font-size: rem-calc(16);
+            font-weight: 500;
+
+            &.success {
+                border-color: $success-color;
+                color: $success-color;
+            }
         }
     }
 }
@@ -370,7 +381,7 @@ select {
             padding: 16px 12px 12px 12px;
         }
 
-        .server-progress {
+        .server-progress, .talk-progress {
             background: rgba(black, 0.1);
             height: 46px;
             max-height: 46px;
@@ -387,6 +398,16 @@ select {
                     top: 12px;
                     color: $vr-beige;
                 }
+            }
+        }
+
+        .talk-progress {
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 0;
+            overflow-x: hidden;
+
+            .progress-meter {
+                border-bottom-left-radius: 0;
             }
         }
     }
@@ -459,19 +480,32 @@ table.venue-control-panel {
 
 .soundbars {
     position: relative;
-    margin-right: 60px;
+    height: 44px;
+
+    // margin-right: 60px;
 }
 
 #bars {
-    margin-top: 20px;
+    margin-top: 44px;
+    margin-right: 20px;
+}
+
+.bar-holder {
+    width: 8px;
+    height: 44px;
+    background: rgba(black, 0.1);
+    position: relative;
+    float: right;
+    margin-right: 4px;
+    top: -44px;
 }
 
 .bar {
     background: $oil;
-    bottom: 1px;
+    bottom: 0;
     height: 1px;
     position: absolute;
-    width: 3px;
+    width: 100%;
 
     .signal & {
         animation: sound 0ms -800ms linear infinite alternate;
@@ -481,62 +515,62 @@ table.venue-control-panel {
 @keyframes sound {
     0% {
         opacity: .35;
-        height: 3px;
+        height: 1px;
     }
 
     100% {
         opacity: 1;
-        height: 16px;
+        height: 44px;
     }
 }
 
-.bar:nth-child(1) {
-    left: 1px;
+.bar-holder:nth-child(1) .bar {
+    // left: 1px;
     animation-duration: 474ms;
 }
 
-.bar:nth-child(2) {
-    left: 5px;
+.bar-holder:nth-child(2) .bar {
+    // left: 15px;
     animation-duration: 433ms;
 }
 
-.bar:nth-child(3) {
-    left: 9px;
+.bar-holder:nth-child(3) .bar {
+    // left: 30px;
     animation-duration: 407ms;
 }
 
-.bar:nth-child(4) {
-    left: 13px;
+.bar-holder:nth-child(4) .bar {
+    // left: 45px;
     animation-duration: 458ms;
 }
 
-.bar:nth-child(5) {
-    left: 17px;
+.bar-holder:nth-child(5) .bar {
+    // left: 60px;
     animation-duration: 400ms;
 }
 
-.bar:nth-child(6) {
-    left: 21px;
+.bar-holder:nth-child(6) .bar {
+    // left: 75px;
     animation-duration: 427ms;
 }
 
-.bar:nth-child(7) {
-    left: 25px;
+.bar-holder:nth-child(7) .bar {
+    // left: 90px;
     animation-duration: 441ms;
 }
 
-.bar:nth-child(8) {
-    left: 29px;
+.bar-holder:nth-child(8) .bar {
+    // left: 105px;
     animation-duration: 419ms;
 }
 
-.bar:nth-child(9) {
-    left: 33px;
+.bar-holder:nth-child(9) .bar {
+    // left: 120px;
     animation-duration: 487ms;
 }
 
-.bar:nth-child(10) {
-    left: 37px;
+.bar-holder:nth-child(10) .bar {
+    // left: 135px;
     animation-duration: 442ms;
 }
 
