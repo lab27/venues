@@ -4,16 +4,17 @@
 			<div class="titlebar clearfix">
 				<h4 class="title">STREAMING SERVER
 					<span class="neutral badge float-right">&#8734;</span>
-					<span class="float-right server-bitrate-wrapper"><span class="server-bitrate">--</span> kB/sec</span>
 				</h4>
 			</div>
 			<div class="divider"></div>
 			<div class="actionbar clearfix">
-				<p class="label launchable-in">
+				<p class="launchable-in float-left">
 					Available
 					<span class="countdown" id="time-till-provisioning"> </span>
+					<span class="float-right server-bitrate-wrapper"><span class="server-bitrate">--</span> kB/sec</span>
 				</p>
-				<a class="button success server-start-button hide">Click to launch server</a>
+					<a class="button success tiny float-right server-start-button disabled">LAUNCH SERVER</a>
+				
 				<div class="secondary progress server-progress hide" role="progressbar" tabindex="0" aria-valuenow="25" aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
 					<div class="progress-meter" style="width: 25%">
 						<p class="progress-meter-text">Server is starting</p>
