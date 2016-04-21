@@ -130,7 +130,7 @@ $('.launching-now .timer').countdown(in4Min, function(event) {
 
 //Click Start Stream
 $('.talk-start-button').on('click', function(){
-	$('.talk-stop-button').removeClass('hide');
+	// $('.talk-stop-button').removeClass('hide');
 	$(this).addClass('hide');
 	$('.on-air').addClass('success').addClass('animate-flicker').text('ON AIR')
 	$('.talk-panel .badge').removeClass('warning').addClass('success').html('&#x2713;')

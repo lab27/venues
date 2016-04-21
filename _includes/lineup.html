@@ -1,10 +1,11 @@
-<div class="title-bar"><h5 class="lineup-title">Upcoming Talks:</h5>
+<div class="title-bar"><h5 class="lineup-title">Upcoming Talks</h5>
 </div>
 <table class="stack lineup-list">
 	<tr>
 		<th></th>
+		<th>Date</th>
 		<th>Start Time</th>
-		<th></th>
+		<th>Duration</th>
 		<th>Title</th>
 		<!-- <th>Action</th> -->
 		<th></th>
@@ -12,32 +13,38 @@
 	{% for talk in site.data.upcoming-talks %}
 		<tr class="lineup-list-item">
 			<td class="blank"></td>
+			<td class="talk-date">{{talk.date}}</td>
 			<td class="talk-time">{{talk.time}}</td>
-			<td class="soundbars-cell"></td>
+			<td class="talk-duration">{{talk.duration}}</td>
 			<td class="talk-title">{{talk.name}}&nbsp; </td>
-			</td>
+			
 			
 			<td class="blank"></td>
 		</tr>
 	{% endfor %}
 </table>
-<div class="title-bar"><h5 class="lineup-title">Previous Talks:</h5>
+<div class="title-bar"><h5 class="lineup-title">Previous Talks</h5>
 </div>
 <table class="stack lineup-list previous-talks">
 	<tr>
 		<th></th>
+		<th>Date</th>
 		<th>Start Time</th>
-		<th></th>
+		<th>Duration</th>
 		<th>Title</th>
+		<th>Listeners</th>
 		<!-- <th>Action</th> -->
 		<th></th>
 	</tr>
 	{% for talk in site.data.previous-talks %}
 		<tr class="lineup-list-item">
 			<td class="blank"></td>
+			<td class="talk-date">{{talk.date}}</td>
 			<td class="talk-time">{{talk.time}}</td>
-			<td class="soundbars-cell"></td>
-			<td class="talk-title">{{talk.name}}</td>
+			<td class="talk-duration">{{talk.duration}}</td>
+			<td class="talk-title">{{talk.name}}&nbsp; </td>
+			<td class="talk-title">{{talk.listeners}}&nbsp; </td>
+			
 			<td class="blank"></td>
 		</tr>
 	{% endfor %}

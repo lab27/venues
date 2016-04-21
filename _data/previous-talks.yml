@@ -1,24 +1,30 @@
 - name: Preisverleihung „Preis der Leipziger Buchmesse 2016“
   date: 03.06.2016
-  time: 14:00
+  time: "14:00"
   duration: 85 min
+  listeners: 251
 - name: Präsentation der Nominierten „Übersetzung“
   date: 03.06.2016
-  time: 15:30
+  time: "15:30"
   duration: 85 min
+  listeners: 251
 - name: Präsentation der Nominierten „Belletristik“
   date: 03.06.2016
-  time: 17:00
+  time: "17:00"
   duration: 85 min
+  listeners: 251
 - name: Präsentation der Nominierten „Sachbuch/Essayistik“
   date: 03.06.2016
-  time: 18:30
+  time: "18:30"
   duration: 85 min
+  listeners: 251
 - name: 25 Jahre Leipzig liest. DER Festabend - Teil 1
   date: 03.06.2016
-  time: 20:00
+  time: "20:00"
   duration: 85 min
+  listeners: 251
 - name: "Vorablesung: Der Preis der Leipziger Buchmesse in der Kategorie Sachbuch"
   date: 03.06.2016
-  time: 21:30
+  time: "21:30"
   duration: 85 min
+  listeners: 251
