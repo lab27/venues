@@ -16,10 +16,29 @@ nav.top-bar {
     border: none;
 }
 
+.prototype-controls {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    max-width: 400px;
+    background: $vr-purple;
+    color: white;
+    padding: 6px;
+    font-size: rem-calc(12);
+
+    a {
+        margin-left: 12px;
+    }
+}
+
 .top-bar svg {
     width: 16px;
     height: 16px;
     fill: $primary-color;
+}
+
+.top-bar ul {
+    background: none;
 }
 
 .top-bar li a:hover {
@@ -28,6 +47,14 @@ nav.top-bar {
 
 .top-bar li a.state-fake-button {
     pointer-events: none;
+}
+
+.top-bar.topbar-on-air {
+    background: $success-color;
+}
+
+.top-bar.topbar-off-air {
+    background: $vr-red;
 }
 
 .title-bar {
@@ -362,6 +389,7 @@ select {
             font-family: $body-font-family;
             font-weight: 300;
             color: $oil;
+            text-transform: uppercase;
         }
 
         .neutral {
@@ -381,12 +409,16 @@ select {
     }
 
     .actionbar {
-        padding: 12px;
+        padding: 0;
         color: $vr-beige;
         background: rgba(black, 0.1);
         height: 46px;
         max-height: 46px;
         font-size: .8rem;
+
+        .holder {
+            padding: 12px;
+        }
 
         a.button {
             // // width: 100%;
@@ -398,12 +430,10 @@ select {
         }
 
         .label {
-            height: 46px;
-            max-height: 46px;
             background: none;
             margin: 0;
             color: $vr-beige;
-            padding: 16px 12px 12px 12px;
+            padding: 0;
         }
 
         .server-progress, .talk-progress {
@@ -422,6 +452,8 @@ select {
                     transform: none;
                     top: 12px;
                     color: $vr-beige;
+                    font-weight: 300;
+                    font-size: .8rem;
                 }
             }
         }
@@ -439,12 +471,22 @@ select {
 
     .server-panel .actionbar .button {
         // border-bottom-left-radius: 4px;
-   
+        margin-top: -3px;
     }
 
     .talk-panel .actionbar .button {
         // border-bottom-right-radius: 4px;
    
+    }
+
+    .talk-start-button {
+        margin-top: -3px;
+    }
+
+    .talk-stop-button {
+        position: absolute;
+        margin-top: -37px;
+        right: 47px;
     }
 }
 
@@ -746,5 +788,53 @@ table.venue-control-panel {
 
     100% {
         width: 100%;
+    }
+}
+
+.callout {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    button {
+        // color: white;
+        margin: 0;
+
+        span {
+            margin: 0;
+        }
+    }
+
+    h5 {
+        font-family: $body-font-family;
+        margin: 0;
+
+        // color: white;
+   
+    }
+
+    &.alert {
+        background: $vr-red;
+    }
+
+    &.warning {
+        background: $vr-yellow;
+    }
+}
+
+.listeners {
+    margin-right: 24px;
+
+    .listener-count {
+        color: $oil;
+        font-size: rem-calc(36);
+    }
+
+    .listener-label {
+        color: $oil;
+        font-size: rem-calc(12);
+        margin: 0;
     }
 }

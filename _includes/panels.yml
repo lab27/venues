@@ -1,0 +1,9 @@
+- nickname: "server"
+  name: "streaming server"
+  markup: thing
+- nickname: device
+  name: audio source
+  markup: "{% include device-select.html %}"
+- nickname: talk
+  name: broadcast
+  markup: thing

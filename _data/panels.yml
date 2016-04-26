@@ -1,0 +1,6 @@
+- nickname: server
+  name: streaming server
+- nickname: device
+  name: audio source
+- nickname: talk
+  name: broadcast

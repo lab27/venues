@@ -2,6 +2,7 @@
 
 var stateMsg1 = "One hour before event.";
 var stateMsg2 = "~10 Minutes before event.";
+var serverOn = false;
 
 var insideTenMin = false;
 
@@ -28,7 +29,7 @@ $('.date-btn').on("click", function() {
 		$('.state-msg').text(stateMsg1);
 	    $('.launchable-in').addClass('hide');
 	    $('.date-btn').addClass('hide');
-	    $('.server-start-button').removeClass('hide')
+	    $('.server-start-button').removeClass('disabled')
 	    $('.launch-advice').removeClass('hide')
 	    $('.server-panel .badge').removeClass('neutral').addClass('warning').text('!')
 	    if ($('select').val() == 'none') {
@@ -51,8 +52,11 @@ $('.date-btn').on("click", function() {
  	 	
 
  	 	$('.server-panel .badge').removeClass('warning').addClass('success').html('&#x2713;')
+ 	 	serverOn = true
  	 	
-		$('.online-for').removeClass('hide')
+		$('.phase3').removeClass('hide')
+		$('.talk-phase1').addClass('hide')
+		$('.talk-phase2').removeClass('hide')
 		$('.online-for').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
 		  var $this = $(this);
 		  if (event.elapsed) {
@@ -65,9 +69,10 @@ $('.date-btn').on("click", function() {
 		$('.clock-msg').countdown(in10Min, function(event) {
    			$(this).html(event.strftime('%-M:%S'));
  		});
- 		$('.clock-msg').addClass('hide')
- 		$('.talk-start-button').removeClass('hide')
- 		$('.date-btn').addClass('hide');
+
+ 		$('.callout').removeClass('hide')
+ 		// $('.clock-msg').addClass('hide')
+ 		//$('.date-btn').addClass('hide');
 		$('.state-msg').text(stateMsg2);
 
 		insideTenMin = true;
@@ -82,6 +87,21 @@ $('.date-btn').on("click", function() {
 
 		}
 
+	} else if(clockState == 3) {
+		$('.callout h5').text("You wanna be startin' somethin'?")
+		$('.callout').removeClass('hide').removeClass('warning').addClass('alert')
+
+		// $('.clock-msg').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
+		//   var $this = $(this);
+		//   if (event.elapsed) {
+		//     $this.html(event.strftime('<span>%S ago</span>'));
+		//   } else {
+		//     $this.html(event.strftime('<span>%H:%M:%S ass</span>'));
+		//   }
+		// });
+		$('.clock-msg').addClass('hide')
+		$('.ago-msg').removeClass('hide').html("1 minute ago")
+		$(this).addClass('hide')
 	}
 
     clockState += 1;
@@ -90,17 +110,22 @@ $('.date-btn').on("click", function() {
 // select change
 $('select').change(function(){
   if($(this).val() == 'vr'){ 
-    $('.device-panel .badge').removeClass('neutral').removeClass('warning').addClass('success').html('&#x2713;')
+    $('.device-panel .badge').removeClass('neutral').removeClass('warning').removeClass('alert').addClass('success').html('&#x2713;')
   } else if ($(this).val() == 'none') {
   	 $('.device-panel .badge').removeClass('success').removeClass('alert').addClass('warning').html('!')
   } else if ($(this).val() == 'new') {
   	$('#device-modal').foundation('open');
   }
   $('.soundbars').addClass('signal');
+  $('.listeners').removeClass('hide')
   if (insideTenMin == true) {
   		$('.soundbars').addClass('signal');
-		$('.start').removeClass('disabled')
   }
+
+  if (serverOn == true) {
+  	$('.talk-phase2 .button').removeClass('disabled')
+  }
+
 });
 
 
@@ -110,9 +135,10 @@ $('select').change(function(){
 $('.server-start-button').on('click',function(){
 	$(this).hide()
 	$('.server-progress').removeClass('hide')
-	$('.launch-advice').addClass('hide')
+	$('.phase1').addClass('hide')
     $('.launching-now').removeClass('hide')
     $('.date-btn').removeClass('hide');
+
 });
 
 
@@ -135,6 +161,9 @@ $('.talk-start-button').on('click', function(){
 	$('.on-air').addClass('success').addClass('animate-flicker').text('ON AIR')
 	$('.talk-panel .badge').removeClass('warning').addClass('success').html('&#x2713;')
 	$('.talk-progress').removeClass('hide')
+	$('.talk-phase2').addClass('hide')
+	$('.callout').addClass('hide')
+	$('.top-bar').addClass('topbar-on-air')
 	$('.talk-panel .progress-meter-text').countdown(oneSecond, {elapse: true}).on('update.countdown', function(event) {
 		  var $this = $(this);
 		  if (event.elapsed) {
@@ -149,11 +178,16 @@ $('.talk-start-button').on('click', function(){
 $('.talk-stop-button').on('click', function(){
     $('.talk-start-button').removeClass('hide');
 	$(this).addClass('hide');
-	$('.on-air').addClass('hide')
-	$('.clock-label .badge').removeClass('success').addClass('alert').html('!')
+	$('.top-bar').removeClass('topbar-on-air')
+	$('.top-bar').addClass('topbar-off-air')
+
+	$('.on-air').removeClass('success').removeClass('animate-flicker').text('OFF AIR')
+	$('.talk-panel .badge').removeClass('success').addClass('warning').html('!')
 	$('.stopped').removeClass('hide');
 	$('.soundbars').removeClass('signal');
+});
 
-
-
+//close the callout
+$('.callout').on('click', function(){
+	$(this).addClass('hide')
 });
